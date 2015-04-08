@@ -1,0 +1,13 @@
+{
+  "name": "rename",
+  "version": "1.0.0",
+  "description": "A small project to demonstrate css class re-naming with php and javascript integration.",
+  "author": "Isaac Weaver",
+  "license": "ISC",
+  "dependencies": {
+    "css": "^2.2.0"
+  },
+  "devDependencies": {
+    "grunt-contrib-uglify": "^0.8.1"
+  }
+}
