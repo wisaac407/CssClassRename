@@ -5,6 +5,7 @@
   "author": "Isaac Weaver",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^3.3.4",
     "css": "^2.2.0"
   },
   "devDependencies": {
