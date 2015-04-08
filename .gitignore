@@ -1,0 +1,9 @@
+node_modules
+
+# Exclude all minifyed files
+*.min.js
+*.min.css
+
+*.json
+
+*.log
