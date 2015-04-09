@@ -43,17 +43,17 @@
 		
 		<link rel='stylesheet' href = 'node_modules/bootstrap/dist/css/bootstrap.css'>
 		
-		<script src = '/node_modules/jquery/dist/jquery.js'></script>
-		<script src = '/node_modules/bootstrap/dist/js/bootstrap.js'></script>
-		<script src = '/assets/js/main.js'></script>
+		<script src = 'node_modules/jquery/dist/jquery.js'></script>
+		<script src = 'node_modules/bootstrap/dist/js/bootstrap.js'></script>
+		<script src = 'assets/js/main.js'></script>
 		
 		<?php else: ?>
 		
 		<link rel='stylesheet' href = 'node_modules/bootstrap/dist/css/bootstrap.sm.cls.css'>
 		
-		<script src = '/node_modules/jquery/dist/jquery.min.js'></script>
-		<script src = '/node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
-		<script src = '/assets/js/main.min.js'></script>
+		<script src = 'node_modules/jquery/dist/jquery.min.js'></script>
+		<script src = 'node_modules/bootstrap/dist/js/bootstrap.min.js'></script>
+		<script src = 'assets/js/main.min.js'></script>
 		
 		<?php endif; ?>
 	
