@@ -82,7 +82,7 @@
 					<div class = "alert alert-success" role = "alert">
 						<span class = "glyphicon glyphicon-ok" aria-hidden = "true"></span>
 						<strong>Hooray!</strong>
-						Hello World!
+						Everything worked fine.
 					</div>
 				</div>
 				<div class = "col-sm-6">
