@@ -10,7 +10,7 @@
 		return implode( '-', $parts );
 	}
 	function class_rename ( $content ) {
-		$string = file_get_contents( '/home/isaac/Sites/cssclassrename/map.json' );
+		$string = file_get_contents( 'map.json' );
 		$classMap = json_decode( $string, true );
 		
 		$doc = new DOMDocument();
