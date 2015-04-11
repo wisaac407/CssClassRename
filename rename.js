@@ -42,24 +42,32 @@ module.exports = (function() {
 		return parts.join( '-' ); // Finnaly, join together all the class parts.
 	}
 	
-	function walkPass1 ( rule ) {
+	function walkPass1 ( rule, map ) {
 		/**
 		 * On the first pass we walk over the ast finding all the class parts
 		 */
 		var classParts = [], // Returned class parts.
 			i;
 		
+		map = map || {};
+		
 		if ( rule.type == 'rule' ) {
 			rule.selectors.forEach(function ( selector ) {
-				classParts = classParts.concat( getClassParts( selector ) );
+				getClassParts( selector ).forEach(function ( part ) {
+					if ( map[ part ] ) {
+						map[ part ] += 1;
+					} else {
+						map[ part ] = 1;
+					}
+				});
 			});
 		} else if ( rule.rules != undefined ) {
 			rule.rules.forEach(function ( rule ) {
-				classParts = classParts.concat( walkPass1( rule ) );
+				walkPass1( rule, map );
 			});
 		}
 
-		return classParts;
+		return map;
 	}
 	
 	function walkPass2 ( rule, map ) {
@@ -84,8 +92,7 @@ module.exports = (function() {
 		 */
 		var 
 			ast = css.parse( s, options ),
-			classParts = walkPass1( ast.stylesheet ), // Walk the first pass.
-			countMap = {},
+			countMap = walkPass1( ast.stylesheet ), // Walk the first pass.
 			sortedCounts = [],
 			map = {}, // Final map.
 			part,
@@ -93,15 +100,6 @@ module.exports = (function() {
 			// List of charictor positions for the short class names.
 			// Each number corresponds to a charictor in the `chars` string.
 			charPosSet = [ 0 ];
-		
-		// Build up a counts map.
-		classParts.forEach(function ( part ) {
-			if ( countMap[ part ] == undefined ) {
-				countMap[ part ] = 1;
-			} else {
-				countMap[ part ]++;
-			}
-		});
 		
 		// Unpack the count map.
 		for ( part in countMap ) {
