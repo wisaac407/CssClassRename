@@ -5,7 +5,6 @@ module.exports = function(grunt) {
       	fs = require( 'fs' ),
       
       	// Globals
-      	jQueryPattern = /(?:jQuery|\$|find)\s*\(\s*(["'])((?:\\.|(?!\1).)*)\1\s*\)/g,
       	fnPattern = /(jQuery|\$|find|__)\s*\(\s*(["'])((?:\\.|(?!\2).)*)\2\s*\)/g;
     
     // Project configuration.
@@ -75,13 +74,14 @@ module.exports = function(grunt) {
 						classes[ i ] = rename.getClassName( classes[i], map );
 					}
 					
+					// We can safly assume that that the classes string won't contain any quotes.
 					return '"' + classes.join( ' ' ) + '"';
 				} else { // Must be a jQuery function.
 					return match.replace( str, rename.getClassSelector( str, map ) );
 				}
 			});
-			
-			fs.writeFileSync( file.dest, '!(function(window, undefined) {' + output + '})(window);' );
+			// Wrap the output in a function so that the `__` function can get removed by an optimizer.
+			fs.writeFileSync( file.dest, '!(function(window, undefined) {\n' + output + '\n})(window);' );
 		});
 	});
 	// Default task(s).
