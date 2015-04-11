@@ -4,6 +4,9 @@
   "description": "A small project to demonstrate css class re-naming with php and javascript integration.",
   "author": "Isaac Weaver",
   "license": "ISC",
+  "scripts": {
+    "postinstall": "grunt"
+  },
   "dependencies": {
     "bootstrap": "^3.3.4",
     "css": "^2.2.0",
