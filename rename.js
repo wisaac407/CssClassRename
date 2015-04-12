@@ -5,17 +5,17 @@ module.exports = (function() {
 		// All avaliable characters used in the short classes.
 		chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-	function getClassParts ( s ) {
+	function getClassParts ( selector ) {
 		/**
 		 * Find all the class segments within a givin selector.
 		 */
 		var classParts = [];
 		var match;
-		while ( ( match = classTest.exec( s ) ) != null ) {
+		while ( ( match = classTest.exec( selector ) ) != null ) {
 			match[ 0 ].slice( 1 ).split( '-' ).forEach(function ( part ) {
 				classParts.push( part );
 			});
-		    s = s.slice( match.index + match[ 0 ].length );
+			selector = selector.slice( match.index + match[ 0 ].length );
 		}
 		return classParts;
 	}
