@@ -6,6 +6,9 @@ module.exports = (function() {
 		chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 	function getClassParts ( s ) {
+		/**
+		 * Find all the class segments within a givin selector.
+		 */
 		var classParts = [];
 		var match;
 		while ( ( match = classTest.exec( s ) ) != null ) {
@@ -18,12 +21,18 @@ module.exports = (function() {
 	}
 	
 	function getClassSelector ( selector, map ) {
+		/**
+		 * Given a map and css selector return a new selector with renamed classes.
+		 */
 		return selector.replace( classTest, function ( match, group ) {					
 			return '.' + getClassName( group, map );
 		});
 	}
 	
 	function getClassName ( cls, map ) {
+		/**
+		 * Return the new class named based on the given map.
+		 */
 		var parts = cls.split( '-' ), // Split up the class parts.
 			part,
 			i = parts.length;
