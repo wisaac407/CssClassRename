@@ -9,8 +9,9 @@ module.exports = (function() {
 		/**
 		 * Find all the class segments within a givin selector.
 		 */
-		var classParts = [];
-		var match;
+		var classParts = [],
+			match;
+		
 		while ( ( match = classTest.exec( selector ) ) != null ) {
 			match[ 0 ].slice( 1 ).split( '-' ).forEach(function ( part ) {
 				classParts.push( part );
