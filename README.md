@@ -16,5 +16,8 @@ After you make any changes be sure to run `grunt` to re-build the project.
 
 Thats it!
 
+**This repo is just a proof-of-concept and not intended for actual use. Instead you should see [smallector][3]**
+
 [1]: http://nodejs.org/
 [2]: http://gruntjs.com/
+[3]: http://github.com/wisaac407/smallector
