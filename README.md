@@ -2,7 +2,7 @@
 A small project to demonstrate css class re-naming with php and javascript integration.
 
 ## Dependencies
-This project has the fallowing two dependencies:
+This project has the fallowing three dependencies:
 
   1. [Nodejs][1]
   2. [Grunt][2]
